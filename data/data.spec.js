@@ -116,3 +116,83 @@ describe('A stack', function(){
   });
 
 });
+
+describe('A doubly-linked list', function(){
+
+  var list, uniqueObj = { id: 789 };
+  beforeEach(function(){
+    list = new LinkedList();
+  });
+
+  it('can be constructed', function(){
+    expect(list).toEqual(jasmine.any(Object));
+  });
+
+  it('has head and tail originally set to null', function(){
+    expect(list.head).toBe(null);
+    expect(list.tail).toBe(null);
+  });
+
+  it('can add to the tail', function(){
+    list.addToTail(uniqueObj);
+    expect(list.head).toBe(list.tail);
+    expect(list.tail).toEqual(jasmine.objectContaining({
+      value: uniqueObj,
+      next: null,
+      prev: null
+    }));
+  });
+
+  it('can add two items', function(){
+    list.addToTail('first');
+    list.addToTail('second');
+    expect(list.head).toEqual(jasmine.objectContaining({
+      value: 'first',
+      next: list.tail,
+      prev: null
+    }));
+    expect(list.tail).toEqual(jasmine.objectContaining({
+      value: 'second',
+      next: null,
+      prev: list.head
+    }));
+  });
+
+  it('can add many items', function(){
+    list.addToTail(1);
+    list.addToTail(2);
+    list.addToTail(3);
+    list.addToTail(4);
+    expect(list.head.prev).toBe(null);
+    expect(list.tail.next).toBe(null);
+    expect(list.head.value).toBe(1);
+    expect(list.head.next.value).toBe(2);
+    expect(list.head.next.next.value).toBe(3);
+    expect(list.head.next.next.next.value).toBe(4);
+    expect(list.tail).toBe(list.head.next.next.next);
+    expect(list.tail.prev).toBe(list.head.next.next);
+    expect(list.tail.prev.prev).toBe(list.head.next);
+    expect(list.tail.prev.prev.prev).toBe(list.head);
+  });
+
+  it('can remove items cleanly', function(done){
+    list.addToTail(500);
+    list.addToTail(404);
+    expect(list.removeFromTail()).toBe(404);
+    expect(list.tail.next).toBe(null);
+    expect(list.removeFromTail()).toBe(500);
+    expect(list.head).toBe(null);
+    expect(list.removeFromTail()).toBe(undefined);
+  });
+
+  it('can traverse the list to confirm items', function(){
+    list.addToTail('Gandalf');
+    list.addToTail('Dumbledore');
+    list.addToTail('Merlin');
+    expect(list.contains('Dumbledore')).toBe(true);
+    expect(list.contains('Oz')).toBe(false);
+    list.removeFromTail();
+    expect(list.contains('Merlin')).toBe(false);
+  });
+
+});
