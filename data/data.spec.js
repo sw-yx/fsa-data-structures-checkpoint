@@ -180,7 +180,8 @@ describe('A doubly-linked list', function(){
     expect(list.contains('Dumbledore')).toBe(true);
     expect(list.contains('Oz')).toBe(false);
     list.removeFromTail();
-    expect(list.contains('Merlin')).toBe(false);
+    list.removeFromTail();
+    expect(list.contains('Dumbledore')).toBe(false);
   });
 
 });
