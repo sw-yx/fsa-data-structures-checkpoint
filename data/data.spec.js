@@ -7,10 +7,6 @@ describe('A queue', function(){
     queue = new Queue();
   });
 
-  it('can be constructed', function(){
-    expect(queue).toEqual(jasmine.any(Object));
-  });
-
   it('adds and removes an item', function(){
     queue.add(uniqueObj);
     expect(queue.remove()).toBe(uniqueObj);
@@ -73,10 +69,6 @@ describe('A stack', function(){
     stack = new Stack();
   });
 
-  it('can be constructed', function(){
-    expect(stack).toEqual(jasmine.any(Object));
-  });
-
   it('adds and removes an item', function(){
     stack.add(uniqueObj);
     expect(stack.remove()).toBe(uniqueObj);
@@ -122,10 +114,6 @@ describe('A doubly-linked list', function(){
   var list, uniqueObj = { id: 789 };
   beforeEach(function(){
     list = new LinkedList();
-  });
-
-  it('can be constructed', function(){
-    expect(list).toEqual(jasmine.any(Object));
   });
 
   it('has head and tail originally set to null', function(){
