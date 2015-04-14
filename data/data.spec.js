@@ -96,7 +96,7 @@ describe('A doubly-linked list', function(){
     list.addToTail(uniqueObj);
     expect(list.head).toBe(list.tail);
     expect(list.tail).toEqual(jasmine.objectContaining({
-      value: uniqueObj,
+      item: uniqueObj,
       next: null,
       prev: null
     }));
@@ -106,12 +106,12 @@ describe('A doubly-linked list', function(){
     list.addToTail('first');
     list.addToTail('second');
     expect(list.head).toEqual(jasmine.objectContaining({
-      value: 'first',
+      item: 'first',
       next: list.tail,
       prev: null
     }));
     expect(list.tail).toEqual(jasmine.objectContaining({
-      value: 'second',
+      item: 'second',
       next: null,
       prev: list.head
     }));
@@ -124,10 +124,10 @@ describe('A doubly-linked list', function(){
     list.addToTail(4);
     expect(list.head.prev).toBe(null);
     expect(list.tail.next).toBe(null);
-    expect(list.head.value).toBe(1);
-    expect(list.head.next.value).toBe(2);
-    expect(list.head.next.next.value).toBe(3);
-    expect(list.head.next.next.next.value).toBe(4);
+    expect(list.head.item).toBe(1);
+    expect(list.head.next.item).toBe(2);
+    expect(list.head.next.next.item).toBe(3);
+    expect(list.head.next.next.next.item).toBe(4);
     expect(list.tail).toBe(list.head.next.next.next);
     expect(list.tail.prev).toBe(list.head.next.next);
     expect(list.tail.prev.prev).toBe(list.head.next);
@@ -144,15 +144,15 @@ describe('A doubly-linked list', function(){
     expect(list.removeFromTail()).toBe(undefined);
   });
 
-  it('can traverse the list to confirm items', function(){
+  it('can call a function on each node item', function(){
     list.addToTail('Gandalf');
     list.addToTail('Dumbledore');
     list.addToTail('Merlin');
-    expect(list.contains('Dumbledore')).toBe(true);
-    expect(list.contains('Oz')).toBe(false);
-    list.removeFromTail();
-    list.removeFromTail();
-    expect(list.contains('Dumbledore')).toBe(false);
+    var initials = [];
+    list.forEach(function(item){
+      initials.push(item[0]);
+    });
+    expect(initials).toEqual(['G','D','M']);
   });
 
 });
@@ -175,7 +175,7 @@ describe('A hash table', function(){
     // `_hash('name')` returns 17
     // use the linked list `addToTail`
     // you'll need to put a hash node inside a linked list node
-    expect(hash.buckets[17].head.value).toEqual(jasmine.objectContaining({
+    expect(hash.buckets[17].head.item).toEqual(jasmine.objectContaining({
       key: 'name',
       value: 'Harry Potter'
     }));
@@ -184,16 +184,16 @@ describe('A hash table', function(){
   it('can add multiple items', function(){
     hash.set('house', 'Gryffindor');
     hash.set('glasses', true);
-    expect(hash.buckets[ 8].head.value.value).toBe('Gryffindor');
-    expect(hash.buckets[14].head.value.value).toBe(true);
+    expect(hash.buckets[ 8].head.item.value).toBe('Gryffindor');
+    expect(hash.buckets[14].head.item.value).toBe(true);
   });
 
   it('handles collision by adding to the list', function(){
     hash.set('node', 'Pearl St.');
     hash.set('done', 'Hanover Sq.');
     var head = hash.buckets[2].head;
-    expect(head.value.value).toBe('Pearl St.');
-    expect(head.next.value.value).toBe('Hanover Sq.');
+    expect(head.item.value).toBe('Pearl St.');
+    expect(head.next.item.value).toBe('Hanover Sq.');
   });
 
   it('returns an item based on the key', function(){
