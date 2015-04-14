@@ -1,6 +1,6 @@
 # Review Week Mini-Assessment 1
 
-## Data Structures & Sorting Algorithms
+## Data Structures
 
 ### Fork the Repo
 
@@ -14,7 +14,7 @@ The Test'Em Jasmine spec runner must be installed on your system
 npm install -g testem
 ```
 
-Execute the tests by running `testem` from one of the two assessment folders (`data/` or `sort/`). When you complete one suite, work on the other. You may work on either suite first.
+Execute the tests by running `testem` from the assessment folder. You may work on the suites in any order, except that to do `Hash` you need a working `LinkedList`.
 
 ### Submitting your Code
 
