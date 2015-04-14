@@ -33,18 +33,6 @@ describe('A queue', function(){
     expect(queue.remove()).toBe(4);
   });
 
-  it('adds and removes its own items', function(){
-    var q2 = new Queue();
-    queue.add('fullstack');
-    q2.add('JavaScript');
-    expect(q2.remove()).toBe('JavaScript');
-    expect(queue.remove()).toBe('fullstack');
-  });
-
-  it('returns undefined when empty', function(){
-    expect(queue.remove()).toBe(undefined);
-  });
-
   // extra credit; change `xit` to `it` to test
   xit('does not use shift', function(){
     // replacing `shift` with a spy
@@ -95,18 +83,6 @@ describe('A stack', function(){
     expect(stack.remove()).toBe(2);
   });
 
-  it('adds and removes its own items', function(){
-    var s2 = new Stack();
-    stack.add('fullstack');
-    s2.add('JavaScript');
-    expect(stack.remove()).toBe('fullstack');
-    expect(s2.remove()).toBe('JavaScript');
-  });
-
-  it('removes undefined when empty', function(){
-    expect(stack.remove()).toBe(undefined);
-  });
-
 });
 
 describe('A doubly-linked list', function(){
@@ -114,11 +90,6 @@ describe('A doubly-linked list', function(){
   var list, uniqueObj = { id: 789 };
   beforeEach(function(){
     list = new LinkedList();
-  });
-
-  it('has head and tail originally set to null', function(){
-    expect(list.head).toBe(null);
-    expect(list.tail).toBe(null);
   });
 
   it('can add to the tail', function(){
@@ -193,10 +164,6 @@ describe('A hash table', function(){
     hash = new Hash();
   });
 
-  it('has a limited number of buckets', function(){
-    expect(hash.buckets.length).toBe(20);
-  });
-
   it('has linked lists in each bucket', function(){
     for (var i = 0; i < hash.buckets.length; i++) {
       expect(hash.buckets[i] instanceof LinkedList).toBe(true);
@@ -230,8 +197,8 @@ describe('A hash table', function(){
   });
 
   it('returns an item based on the key', function(){
-    // use the linked list `fetch` method
     hash.set('status', 200);
+    // use the linked list `forEach` method
     expect(hash.get('status')).toBe(200);
   });
 
