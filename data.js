@@ -4,8 +4,8 @@ You can insert new lines at those locations, but you
 will not need to edit the lines above and below them.
 */
 
-//----------------------------------
-// Queues — estimated time 5 minutes
+//-----------------------------------------
+// Queues
 
 function Queue() {
   // your code here
@@ -20,8 +20,8 @@ Queue.prototype.remove = function() {
   // your code here
 };
 
-//----------------------------------
-// Stacks — estimated time 3 minutes
+//-----------------------------------------
+// Stacks
 
 function Stack() {
   // your code here
@@ -37,7 +37,7 @@ Stack.prototype.remove = function() {
 };
 
 //-----------------------------------------
-// Linked lists — estimated time 15 minutes
+// Linked lists
 
 function LinkedList () {
   this.head = this.tail = null;
@@ -62,8 +62,8 @@ LinkedList.prototype.forEach = function(iterator) {
   // your code here
 };
 
-//----------------------------------------
-// Hash tables — estimated time 20 minutes
+//-----------------------------------------
+// Hash tables
 
 function _hash (key) {
   var hashedKey = 0;
