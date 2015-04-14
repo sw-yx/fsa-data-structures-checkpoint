@@ -185,3 +185,60 @@ describe('A doubly-linked list', function(){
   });
 
 });
+
+describe('A hash table', function(){
+
+  var hash;
+  beforeEach(function(){
+    hash = new Hash();
+  });
+
+  it('has a limited number of buckets', function(){
+    expect(hash.buckets.length).toBe(20);
+  });
+
+  it('has linked lists in each bucket', function(){
+    for (var i = 0; i < hash.buckets.length; i++) {
+      expect(hash.buckets[i] instanceof LinkedList).toBe(true);
+    }
+  });
+
+  it('uses a hashing function to add hash nodes to the correct linked list', function(){
+    hash.set('name', 'Harry Potter');
+    // `_hash('name')` returns 17
+    // use the linked list `addToTail`
+    // you'll need to put a hash node inside a linked list node
+    expect(hash.buckets[17].head.value).toEqual(jasmine.objectContaining({
+      key: 'name',
+      value: 'Harry Potter'
+    }));
+  });
+
+  it('can add multiple items', function(){
+    hash.set('house', 'Gryffindor');
+    hash.set('glasses', true);
+    expect(hash.buckets[ 8].head.value.value).toBe('Gryffindor');
+    expect(hash.buckets[14].head.value.value).toBe(true);
+  });
+
+  it('handles collision by adding to the list', function(){
+    hash.set('node', 'Pearl St.');
+    hash.set('done', 'Hanover Sq.');
+    var head = hash.buckets[2].head;
+    expect(head.value.value).toBe('Pearl St.');
+    expect(head.next.value.value).toBe('Hanover Sq.');
+  });
+
+  it('returns an item based on the key', function(){
+    // use the linked list `fetch` method
+    hash.set('status', 200);
+    expect(hash.get('status')).toBe(200);
+  });
+
+  it('returns the most recent value for the key', function(){
+    hash.set('year', 'MMXV');
+    hash.set('year', 2015);
+    expect(hash.get('year')).toBe(2015);
+  });
+
+});
