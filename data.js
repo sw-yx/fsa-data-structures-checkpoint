@@ -13,7 +13,7 @@ function Queue() {
 
 Queue.prototype.add = function(item) {
   // your code here
-  return this; // chaining
+  return this; // for chaining, do not edit
 };
 
 Queue.prototype.remove = function() {
@@ -29,7 +29,7 @@ function Stack() {
 
 Stack.prototype.add = function(item) {
   // your code here
-  return this; // chaining
+  return this; // for chaining, do not edit
 };
 
 Stack.prototype.remove = function() {
@@ -51,7 +51,7 @@ function ListNode (item, prev, next) {
 
 LinkedList.prototype.addToTail = function(item) {
   // your code here
-  return this; // chaining
+  return this; // for chaining, do not edit
 };
 
 LinkedList.prototype.removeFromTail = function() {
@@ -85,7 +85,7 @@ function Hash () {
 
 Hash.prototype.set = function(key, value) {
   // your code here
-  return this; // chaining
+  return this; // for chaining, do not edit
 };
 
 Hash.prototype.get = function(key) {
