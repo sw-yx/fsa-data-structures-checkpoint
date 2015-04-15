@@ -79,7 +79,7 @@ function HashNode (key, value) {
 }
 
 function Hash () {
-  this.buckets = new Array(20);
+  this.buckets = Array(20);
   // your code here
 }
 
