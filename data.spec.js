@@ -116,6 +116,8 @@ describe('A doubly-linked list', function(){
     expect(list.removeFromTail()).toBe(undefined);
   });
 
+  // if you have problems with this spec, move on to `Hash`. However,
+  // this `forEach` method can help with the final `Hash` spec.
   it('can call a function on each node item', function(){
     list.addToTail('Gandalf')
         .addToTail('Dumbledore')
@@ -129,7 +131,9 @@ describe('A doubly-linked list', function(){
 
 });
 
-// This suite requires a working LinkedList.
+// This suite requires a (mostly) working `LinkedList`. If you have
+// problems on the last spec of LL, you can proceed. Fair warning,
+// the last spec of `Hash` is easier with a working LL `forEach`.
 describe('A hash table', function(){
 
   var hash;
@@ -162,7 +166,7 @@ describe('A hash table', function(){
 
   it('handles collision by adding to the list', function(){
     hash.set('node', 'Pearl St.').set('done', 'Hanover Sq.');
-    // `node` and `done` both _hash to 2!
+    // 'node' and 'done' both `_hash()` to the number 2!
     var head = hash.buckets[2].head;
     expect(head.item.value).toBe('Pearl St.');
     expect(head.next.item.value).toBe('Hanover Sq.');
@@ -176,7 +180,7 @@ describe('A hash table', function(){
 
   it('returns the most recent value for a given key', function(){
     hash.set('year', 'MMXV').set('year', 2015).set('month', 3);
-    // use the linked list `forEach` method
+    // hint: use the linked list `forEach` method
     expect(hash.get('year')).toBe(2015);
   });
 
