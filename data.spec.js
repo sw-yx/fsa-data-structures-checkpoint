@@ -179,7 +179,8 @@ describe('A hash table', function(){
   });
 
   it('returns the most recent value for a given key', function(){
-    hash.set('year', 'MMXV').set('year', 2015).set('month', 3);
+    // both 'year' and 'discount' _hash to 13
+    hash.set('year', 'MMXV').set('year', 2015).set('discount', true);
     // hint: use the linked list `forEach` method
     expect(hash.get('year')).toBe(2015);
   });
