@@ -1,5 +1,8 @@
 // Data Structures Review Week Mini-Assessment
 
+// For Queus and Stacks: array methods are permitted.
+// If you have time after, you can attempt pointer-based solutions.
+
 describe('A queue', function(){
 
   var queue, uniqueObj = { id: 123 };
