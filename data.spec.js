@@ -108,7 +108,9 @@ describe('A doubly-linked list', function(){
   });
 
   it('can remove items cleanly', function(done){
-    list.addToTail(500).addToTail(404);
+    list.addToTail(500).addToTail(404).addToTail(200);
+    expect(list.removeFromTail()).toBe(200);
+    expect(list.tail.next).toBe(null);
     expect(list.removeFromTail()).toBe(404);
     expect(list.tail.next).toBe(null);
     expect(list.removeFromTail()).toBe(500);
