@@ -128,7 +128,12 @@ describe('A doubly-linked list', function(){
     list.forEach(function(item){
       initials.push(item[0]);
     });
+    // this is the main test...
     expect(initials).toEqual(['G','D','M']);
+    // ...but also, don't mutate your list!
+    expect(list.head.item).toBe('Gandalf');
+    expect(list.head.next.item).toBe('Dumbledore');
+    expect(list.head.next.next.item).toBe('Merlin');
   });
 
 });
