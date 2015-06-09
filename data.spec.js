@@ -33,6 +33,15 @@ describe('A queue', function(){
     expect(queue.remove()).toBe(4);
   });
 
+  // no globals!
+  it('adds and removes its own items', function(){
+    var q2 = new Queue();
+    queue.add('fullstack');
+    q2.add('JavaScript');
+    expect(q2.remove()).toBe('JavaScript');
+    expect(queue.remove()).toBe('fullstack');
+  });
+
 });
 
 describe('A stack', function(){
@@ -63,6 +72,15 @@ describe('A stack', function(){
     stack.add(4);
     expect(stack.remove()).toBe(4);
     expect(stack.remove()).toBe(2);
+  });
+
+  // no globals!
+  it('adds and removes its own items', function(){
+    var s2 = new Stack();
+    stack.add('fullstack');
+    s2.add('JavaScript');
+    expect(stack.remove()).toBe('fullstack');
+    expect(s2.remove()).toBe('JavaScript');
   });
 
 });
