@@ -1,7 +1,7 @@
 // Data Structures Review Week Mini-Assessment
 
-// For Queus and Stacks: array methods are permitted.
-// If you have time after, you can attempt pointer-based solutions.
+// For Queus and Stacks: use any array methods (pop/push/shift/unshift).
+// If you have time at the end, you can attempt index-only solutions.
 
 describe('A queue', function(){
 
