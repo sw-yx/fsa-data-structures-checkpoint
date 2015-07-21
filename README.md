@@ -4,7 +4,7 @@
 
 ### Fork the Repo
 
-Navigate to [this repo](https://github.com/glebec/assessment-data) and fork it to your own Github account. Then `git clone` your forked repo to your local machine.
+Navigate to [this repo](https://github.com/FullstackAcademy/mini-assessment-data) and fork it to your own Github account. Then `git clone` your forked repo to your local machine.
 
 ### Running the Specs
 
