@@ -26,4 +26,4 @@ Submit what you can finish in 90 minutes.
 
 ### Submitting your Code
 
-Zip your project directory and email it to the [Fullstack instructors](instructors+assessment@fullstackacademy.com).
+Zip your project directory and email it to the Fullstack instructors at instructors+assessment@fullstackacademy.com.
