@@ -66,7 +66,7 @@ LinkedList.prototype.forEach = function(iterator) {
 //-----------------------------------------
 // Hash tables
 
-function _hash (key) {
+function hash (key) {
   var hashedKey = 0;
   for (var i = 0; i < key.length; i++) {
     hashedKey += key.charCodeAt(i);
@@ -79,16 +79,16 @@ function HashNode (key, value) {
   this.value = value;
 }
 
-function Hash () {
+function HashTable () {
   this.buckets = Array(20);
   // your code here
 }
 
-Hash.prototype.set = function(key, value) {
+HashTable.prototype.set = function(key, value) {
   // your code here
   return this; // for chaining, do not edit
 };
 
-Hash.prototype.get = function(key) {
+HashTable.prototype.get = function(key) {
   // your code here
 };

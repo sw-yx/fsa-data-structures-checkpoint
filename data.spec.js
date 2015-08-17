@@ -1,5 +1,5 @@
 'use strict';
-/* global Queue Stack LinkedList Hash */
+/* global Queue Stack LinkedList HashTable */
 // Data Structures Review Week Mini-Assessment
 
 // For Queus and Stacks: use any array methods (pop/push/shift/unshift).
@@ -182,53 +182,53 @@ describe('A doubly-linked list', function(){
 // the last spec of `Hash` is easier with a working LL `forEach`.
 describe('A hash table', function(){
 
-  var hash;
+  var hashTable;
   beforeEach(function(){
-    hash = new Hash();
+    hashTable = new HashTable();
   });
 
   it('has linked lists in each bucket', function(){
-    for (var i = 0; i < hash.buckets.length; i++) {
-      expect(hash.buckets[i] instanceof LinkedList).toBe(true);
+    for (var i = 0; i < hashTable.buckets.length; i++) {
+      expect(hashTable.buckets[i] instanceof LinkedList).toBe(true);
     }
   });
 
   it('uses a hashing function to add hash nodes to the correct linked list', function(){
-    hash.set('name', 'Harry Potter');
-    // `_hash('name')` returns 17
+    hashTable.set('name', 'Harry Potter');
+    // `hash('name')` returns 17
     // use the linked list `addToTail`
     // you'll need to put a hash node inside a linked list node
-    expect(hash.buckets[17].head.item).toEqual({
+    expect(hashTable.buckets[17].head.item).toEqual({
       key:   'name',
       value: 'Harry Potter'
     });
   });
 
   it('can add multiple items', function(){
-    hash.set('house', 'Gryffindor').set('glasses', true);
-    expect(hash.buckets[ 8].head.item.value).toBe('Gryffindor');
-    expect(hash.buckets[14].head.item.value).toBe(true);
+    hashTable.set('house', 'Gryffindor').set('glasses', true);
+    expect(hashTable.buckets[ 8].head.item.value).toBe('Gryffindor');
+    expect(hashTable.buckets[14].head.item.value).toBe(true);
   });
 
   it('handles collision by adding to the list', function(){
-    hash.set('node', 'Pearl St.').set('done', 'Hanover Sq.');
-    // 'node' and 'done' both `_hash()` to the number 2!
-    var head = hash.buckets[2].head;
+    hashTable.set('node', 'Pearl St.').set('done', 'Hanover Sq.');
+    // 'node' and 'done' both `hash()` to the number 2!
+    var head = hashTable.buckets[2].head;
     expect(head.item.value).toBe('Pearl St.');
     expect(head.next.item.value).toBe('Hanover Sq.');
   });
 
   it('returns items based on their key', function(){
-    hash.set('status', 200).set('message', 'success');
-    expect(hash.get('status')).toBe(200);
-    expect(hash.get('message')).toBe('success');
+    hashTable.set('status', 200).set('message', 'success');
+    expect(hashTable.get('status')).toBe(200);
+    expect(hashTable.get('message')).toBe('success');
   });
 
   it('returns the most recent value for a given key', function(){
-    // both 'year' and 'discount' _hash to 13
-    hash.set('year', 'MMXV').set('year', 2015).set('discount', true);
+    // both 'year' and 'discount' hash to 13
+    hashTable.set('year', 'MMXV').set('year', 2015).set('discount', true);
     // hint: use the linked list `forEach` method
-    expect(hash.get('year')).toBe(2015);
+    expect(hashTable.get('year')).toBe(2015);
   });
 
 });
