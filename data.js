@@ -1,3 +1,4 @@
+'use strict';
 /*
 Fill in your own code where you see "your code here".
 You can insert new lines at those locations, but you

@@ -1,3 +1,5 @@
+'use strict';
+/* global Queue Stack LinkedList Hash */
 // Data Structures Review Week Mini-Assessment
 
 // For Queus and Stacks: use any array methods (pop/push/shift/unshift).
@@ -128,7 +130,7 @@ describe('A doubly-linked list', function(){
     expect(list.tail.prev.prev).toBe(list.head);
   });
 
-  it('can remove items cleanly', function(done){
+  it('can remove items cleanly', function(){
     list.addToTail(500).addToTail(404).addToTail(200);
     expect(list.removeFromTail()).toBe(200);
     expect(list.tail.next).toBe(null);
@@ -150,7 +152,7 @@ describe('A doubly-linked list', function(){
       initials.push(item[0]);
     });
     // this is the main test...
-    expect(initials).toEqual(['G','D','M']);
+    expect(initials).toEqual(['G', 'D', 'M']);
     // ...but also, don't mutate your list!
     expect(list.head.item).toBe('Gandalf');
     expect(list.head.next.item).toBe('Dumbledore');
@@ -181,7 +183,7 @@ describe('A hash table', function(){
     // use the linked list `addToTail`
     // you'll need to put a hash node inside a linked list node
     expect(hash.buckets[17].head.item).toEqual({
-      key: 'name',
+      key:   'name',
       value: 'Harry Potter'
     });
   });
