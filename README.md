@@ -26,4 +26,7 @@ Submit what you can finish in 90 minutes.
 
 ### Submitting your Code
 
-Zip your project directory and email it to the Fullstack instructors at instructors+assessment@fullstackacademy.com.
+1. `git add -A`
+2. `git commit -m 'submission for deadline'`
+3. `git push`
+2. Zip your project directory and email it to the Fullstack instructors at instructors+assessment@fullstackacademy.com.
