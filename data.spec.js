@@ -3,7 +3,8 @@
 // Data Structures Review Week Mini-Assessment
 
 // For Queus and Stacks: use any array methods (pop/push/shift/unshift).
-// If you have time at the end, you can attempt index-only solutions.
+// If you have time at the end, you can attempt index-only solutions —
+// as in, no .length and no Array.prototype methods.
 
 describe('A queue', function(){
 
