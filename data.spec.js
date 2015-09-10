@@ -19,6 +19,9 @@ describe('A queue', function(){
 
   it('returns `undefined` on underflow (empty)', function(){
     expect(queue.remove()).toBe(undefined);
+    queue.add(uniqueObj);
+    expect(queue.remove()).toBe(uniqueObj);
+    expect(queue.remove()).toBe(undefined);
   });
 
   // FIFO: First In, First Out
@@ -67,6 +70,9 @@ describe('A stack', function(){
   });
 
   it('returns `undefined` on underflow (empty)', function(){
+    expect(stack.remove()).toBe(undefined);
+    stack.add(uniqueObj);
+    expect(stack.remove()).toBe(uniqueObj);
     expect(stack.remove()).toBe(undefined);
   });
 
