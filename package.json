@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "test": "node_modules/.bin/testem ./data.spec.js",
-    "grade": "node_modules/.bin/testem ci ./data.spec.js",
+    "grade": "node_modules/.bin/testem ci ./data.spec.js"
   },
   "author": "",
   "license": "ISC",
