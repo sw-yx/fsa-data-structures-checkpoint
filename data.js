@@ -64,6 +64,29 @@ LinkedList.prototype.forEach = function(iterator) {
 };
 
 //-----------------------------------------
+// Association lists
+
+function Alist () {
+  // your code here
+}
+
+function AlistNode (key, value, next) {
+  this.key = key;
+  this.value = value;
+  this.next = next;
+}
+
+Alist.prototype.set = function(key, value) {
+  // your code here
+  return this; // for chaining; do not edit
+};
+
+Alist.prototype.get = function(key) {
+  // your code here
+};
+
+
+//-----------------------------------------
 // Hash tables
 
 function hash (key) {
@@ -72,11 +95,6 @@ function hash (key) {
     hashedKey += key.charCodeAt(i);
   }
   return hashedKey % 20;
-}
-
-function HashNode (key, value) {
-  this.key = key;
-  this.value = value;
 }
 
 function HashTable () {

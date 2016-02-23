@@ -164,8 +164,6 @@ describe('A doubly-linked list', function(){
     expect(list.removeFromTail()).toBe(undefined);
   });
 
-  // if you have problems with this spec, move on to `Hash`. However,
-  // this `forEach` method can help with the final `Hash` spec.
   it('can call a function on each node item', function(){
     list.addToTail('Gandalf')
         .addToTail('Dumbledore')
@@ -184,9 +182,68 @@ describe('A doubly-linked list', function(){
 
 });
 
-// This suite requires a (mostly) working `LinkedList`. If you have
-// problems on the last spec of LL, you can proceed. Fair warning,
-// the last spec of `Hash` is easier with a working LL `forEach`.
+// An association list is a singly-linked list which adds to the head only,
+// and whose nodes contain not just values but rather key-value pairs.
+// It is a DS which very simply implements an Associative Array ADT.
+
+describe('An association list', function(){
+
+  var alist;
+  beforeEach(function(){
+    alist = new Alist();
+  });
+
+  it('can set a value for a key', function(){
+    expect(alist.head).toBe(null);
+    alist.set('color', 'brown');
+    expect(alist.head).toEqual({
+      key: 'color',
+      value: 'brown',
+      next: null
+    });
+  });
+
+  it('can get a value for a key', function(){
+    alist.set('color', 'blue');
+    expect(alist.get('color')).toBe('blue');
+  });
+
+  it('can set multiple key-val pairs', function(){
+    alist
+    .set('color', 'white')
+    .set('name', 'Saruman')
+    .set('title', 'Lord of Isengard');
+    expect(alist.head.key).toBe('title');
+    expect(alist.head.value).toBe('Lord of Isengard');
+    expect(alist.head.next.key).toBe('name');
+    expect(alist.head.next.value).toBe('Saruman');
+    expect(alist.head.next.next.key).toBe('color');
+    expect(alist.head.next.next.value).toBe('white');
+  });
+
+  it('can get multiple vals by key', function(){
+    alist
+    .set('color', 'grey')
+    .set('name', 'Gandalf')
+    .set('nickname', 'Mithrandir');
+    expect(alist.get('color')).toBe('grey');
+    expect(alist.get('name')).toBe('Gandalf');
+    expect(alist.get('nickname')).toBe('Mithrandir');
+  });
+
+  it('can set a new value for a key', function(){
+    alist
+    .set('color', 'grey')
+    .set('name', 'Gandalf')
+    .set('nickname', 'Mithrandir')
+    .set('color', 'white') // setting color to a new value
+    .set('race', 'Maia');
+    expect(alist.get('color')).toBe('white');
+  });
+
+});
+
+// This suite requires a working Association List.
 describe('A hash table', function(){
 
   var hashTable;
@@ -194,35 +251,31 @@ describe('A hash table', function(){
     hashTable = new HashTable();
   });
 
-  it('has linked lists in each bucket', function(){
+  it('has association lists in each bucket', function(){
     for (var i = 0; i < hashTable.buckets.length; i++) {
-      expect(hashTable.buckets[i] instanceof LinkedList).toBe(true);
+      expect(hashTable.buckets[i] instanceof Alist).toBe(true);
     }
   });
 
-  it('uses a hashing function to add hash nodes to the correct linked list', function(){
+  it('uses a hashing function to add key-val to the correct alist', function(){
     hashTable.set('name', 'Harry Potter');
     // `hash('name')` returns 17
-    // use the linked list `addToTail`
-    // you'll need to put a hash node inside a linked list node
-    expect(hashTable.buckets[17].head.item).toEqual({
-      key:   'name',
-      value: 'Harry Potter'
-    });
+    expect(hashTable.buckets[17].head.key).toBe('name');
+    expect(hashTable.buckets[17].head.value).toBe('Harry Potter');
   });
 
   it('can add multiple items', function(){
     hashTable.set('house', 'Gryffindor').set('glasses', true);
-    expect(hashTable.buckets[ 8].head.item.value).toBe('Gryffindor');
-    expect(hashTable.buckets[14].head.item.value).toBe(true);
+    expect(hashTable.buckets[ 8].head.value).toBe('Gryffindor');
+    expect(hashTable.buckets[14].head.value).toBe(true);
   });
 
   it('handles collision by adding to the list', function(){
     hashTable.set('node', 'Pearl St.').set('done', 'Hanover Sq.');
     // 'node' and 'done' both `hash()` to the number 2!
     var head = hashTable.buckets[2].head;
-    expect(head.item.value).toBe('Pearl St.');
-    expect(head.next.item.value).toBe('Hanover Sq.');
+    expect(head.value).toBe('Hanover Sq.');
+    expect(head.next.value).toBe('Pearl St.');
   });
 
   it('returns items based on their key', function(){
