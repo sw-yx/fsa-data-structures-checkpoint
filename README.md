@@ -18,11 +18,9 @@ Execute the tests by running `testem` from the assessment folder.
 
 ### Test Parameters
 
-You may work on the suites in any order, except that to do `Hash` you need a working `LinkedList.addToTail`.
+You may work on the suites in any order, except that to do `HashTable` you need a working `Alist`.
 
-You can pass the `Queue` & `Stack` specs using simple array methods to begin. If you finish `LinkedList` & `Hash`, attempt `Queue` & `Stack` solutions that use pointers (indices).
-
-Submit what you can finish in 90 minutes.
+You can pass the `Queue` & `Stack` specs using simple array methods to begin. If you have time, attempt `Queue` & `Stack` solutions that use pointers (indices) or Linked Lists; however, you are encouraged to work on other specs first.
 
 ### Submitting your Code
 
