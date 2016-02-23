@@ -6,34 +6,34 @@ will not need to edit the lines above and below them.
 */
 
 //-----------------------------------------
-// Queues
+// Stacks
 
-function Queue() {
+function Stack () {
   // your code here
 }
 
-Queue.prototype.add = function(item) {
+Stack.prototype.add = function (item) {
   // your code here
   return this; // for chaining, do not edit
 };
 
-Queue.prototype.remove = function() {
+Stack.prototype.remove = function () {
   // your code here
 };
 
 //-----------------------------------------
-// Stacks
+// Queues
 
-function Stack() {
+function Queue () {
   // your code here
 }
 
-Stack.prototype.add = function(item) {
+Queue.prototype.add = function (item) {
   // your code here
   return this; // for chaining, do not edit
 };
 
-Stack.prototype.remove = function() {
+Queue.prototype.remove = function () {
   // your code here
 };
 
@@ -50,16 +50,16 @@ function ListNode (item, prev, next) {
   this.prev = prev || null;
 }
 
-LinkedList.prototype.addToTail = function(item) {
+LinkedList.prototype.addToTail = function (item) {
   // your code here
   return this; // for chaining, do not edit
 };
 
-LinkedList.prototype.removeFromTail = function() {
+LinkedList.prototype.removeFromTail = function () {
   // your code here
 };
 
-LinkedList.prototype.forEach = function(iterator) {
+LinkedList.prototype.forEach = function (iterator) {
   // your code here
 };
 
@@ -76,12 +76,12 @@ function AlistNode (key, value, next) {
   this.next = next;
 }
 
-Alist.prototype.set = function(key, value) {
+Alist.prototype.set = function (key, value) {
   // your code here
   return this; // for chaining; do not edit
 };
 
-Alist.prototype.get = function(key) {
+Alist.prototype.get = function (key) {
   // your code here
 };
 
@@ -102,11 +102,11 @@ function HashTable () {
   // your code here
 }
 
-HashTable.prototype.set = function(key, value) {
+HashTable.prototype.set = function (key, value) {
   // your code here
   return this; // for chaining, do not edit
 };
 
-HashTable.prototype.get = function(key) {
+HashTable.prototype.get = function (key) {
   // your code here
 };
