@@ -110,3 +110,31 @@ HashTable.prototype.set = function (key, value) {
 HashTable.prototype.get = function (key) {
   // your code here
 };
+
+//-----------------------------------------
+// Binary search trees
+
+function BinarySearchTree (val) {
+  // your code here
+}
+
+BinarySearchTree.prototype.insert = function (val) {
+  // your code here
+  return this; // for chaining, do not edit
+};
+
+BinarySearchTree.prototype.min = function () {
+  // your code here
+};
+
+BinarySearchTree.prototype.max = function () {
+  // your code here
+};
+
+BinarySearchTree.prototype.contains = function (val) {
+  // your code here
+};
+
+BinarySearchTree.prototype.traverse = function (iterator) {
+  // your code here
+};
