@@ -51,7 +51,9 @@ describe('An association list', function () {
     expect(alist.get('nickname')).toBe('Mithrandir');
   });
 
-  it('can set a new value for a key', function () {
+  it('gets the most recent value for a key', function () {
+    // there are two standard ways of doing this: one optimized for speed,
+    // the other for memory. If you get one, try also to figure out the other.
     alist
     .set('color', 'grey')
     .set('name', 'Gandalf')
