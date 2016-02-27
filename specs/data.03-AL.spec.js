@@ -6,14 +6,14 @@
 // and whose nodes contain not just values but rather key-value pairs.
 // It is a DS which very simply implements an Associative Array ADT.
 
-describe('An association list', function(){
+describe('An association list', function () {
 
   var alist;
-  beforeEach(function(){
+  beforeEach(function () {
     alist = new Alist();
   });
 
-  it('can set a value for a key', function(){
+  it('can set a value for a key', function () {
     expect(alist.head).toBe(null);
     alist.set('color', 'brown');
     expect(alist.head).toEqual({
@@ -23,12 +23,12 @@ describe('An association list', function(){
     });
   });
 
-  it('can get a value for a key', function(){
+  it('can get a value for a key', function () {
     alist.set('color', 'blue');
     expect(alist.get('color')).toBe('blue');
   });
 
-  it('can set multiple key-val pairs', function(){
+  it('can set multiple key-val pairs', function () {
     alist
     .set('color', 'white')
     .set('name', 'Saruman')
@@ -41,7 +41,7 @@ describe('An association list', function(){
     expect(alist.head.next.next.value).toBe('white');
   });
 
-  it('can get multiple vals by key', function(){
+  it('can get multiple vals by key', function () {
     alist
     .set('color', 'grey')
     .set('name', 'Gandalf')
@@ -51,7 +51,7 @@ describe('An association list', function(){
     expect(alist.get('nickname')).toBe('Mithrandir');
   });
 
-  it('can set a new value for a key', function(){
+  it('can set a new value for a key', function () {
     alist
     .set('color', 'grey')
     .set('name', 'Gandalf')
@@ -61,7 +61,7 @@ describe('An association list', function(){
     expect(alist.get('color')).toBe('white');
   });
 
-  it('returns `undefined` for unset keys', function(){
+  it('returns `undefined` for unset keys', function () {
     expect(alist.get('something')).toBeUndefined();
     // the following is just so this spec does not pass before writing Alist
     alist.set('AlistSetGetWorking', true);

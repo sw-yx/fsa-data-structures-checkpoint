@@ -6,19 +6,19 @@
 // If you have time at the end, you can attempt index-only solutions —
 // as in, no .length and no Array.prototype methods.
 
-describe('A stack', function(){
+describe('A stack', function () {
 
   var stack, uniqueObj = { id: 456 };
-  beforeEach(function(){
+  beforeEach(function () {
     stack = new Stack();
   });
 
-  it('adds and removes an item', function(){
+  it('adds and removes an item', function () {
     stack.add(uniqueObj);
     expect(stack.remove()).toBe(uniqueObj);
   });
 
-  it('returns `undefined` on underflow (empty)', function(){
+  it('returns `undefined` on underflow (empty)', function () {
     expect(stack.remove()).toBe(undefined);
     stack.add(uniqueObj);
     expect(stack.remove()).toBe(uniqueObj);
@@ -26,7 +26,7 @@ describe('A stack', function(){
   });
 
   // LIFO: Last In, First Out
-  it('adds and removes three items in a LIFO way', function(){
+  it('adds and removes three items in a LIFO way', function () {
     stack.add(5).add(uniqueObj).add('fullstack');
     expect(stack.remove()).toBe('fullstack');
     expect(stack.remove()).toBe(uniqueObj);
@@ -34,7 +34,7 @@ describe('A stack', function(){
     expect(stack.remove()).toBe(undefined);
   });
 
-  it('can handle interspersed add and remove', function(){
+  it('can handle interspersed add and remove', function () {
     stack.add(1);
     expect(stack.remove()).toBe(1);
     stack.add(2).add(3);
@@ -46,7 +46,7 @@ describe('A stack', function(){
   });
 
   // no globals!
-  it('adds and removes its own items', function(){
+  it('adds and removes its own items', function () {
     var s2 = new Stack();
     stack.add('fullstack');
     s2.add('JavaScript');
@@ -58,19 +58,19 @@ describe('A stack', function(){
 
 });
 
-describe('A queue', function(){
+describe('A queue', function () {
 
   var queue, uniqueObj = { id: 123 };
-  beforeEach(function(){
+  beforeEach(function () {
     queue = new Queue();
   });
 
-  it('adds and removes an item', function(){
+  it('adds and removes an item', function () {
     queue.add(uniqueObj);
     expect(queue.remove()).toBe(uniqueObj);
   });
 
-  it('returns `undefined` on underflow (empty)', function(){
+  it('returns `undefined` on underflow (empty)', function () {
     expect(queue.remove()).toBe(undefined);
     queue.add(uniqueObj);
     expect(queue.remove()).toBe(uniqueObj);
@@ -78,7 +78,7 @@ describe('A queue', function(){
   });
 
   // FIFO: First In, First Out
-  it('adds and removes three items in a FIFO way', function(){
+  it('adds and removes three items in a FIFO way', function () {
     queue.add(5).add(uniqueObj).add('fullstack');
     expect(queue.remove()).toBe(5);
     expect(queue.remove()).toBe(uniqueObj);
@@ -86,7 +86,7 @@ describe('A queue', function(){
     expect(queue.remove()).toBe(undefined);
   });
 
-  it('can handle interspersed add and remove', function(){
+  it('can handle interspersed add and remove', function () {
     queue.add(1);
     expect(queue.remove()).toBe(1);
     queue.add(2).add(3);
@@ -98,7 +98,7 @@ describe('A queue', function(){
   });
 
   // no globals!
-  it('adds and removes its own items', function(){
+  it('adds and removes its own items', function () {
     var q2 = new Queue();
     queue.add('fullstack');
     q2.add('JavaScript');

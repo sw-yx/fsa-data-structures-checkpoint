@@ -6,20 +6,20 @@
 credit, you may also want to try implementing them without recursion, though
 an iterative in-order traversal of a tree is not entirely straightforward. */
 
-describe('A binary search tree', function(){
+describe('A binary search tree', function () {
 
   var tree;
-  beforeEach(function(){
+  beforeEach(function () {
     tree = new BinarySearchTree(50);
   });
 
-  it('is created with the correct value', function(){
+  it('is created with the correct value', function () {
     expect(tree.value).toBe(50);
     var tree2 = new BinarySearchTree('Frodo');
     expect(tree2.value).toBe('Frodo');
   });
 
-  it('inserts values in the correct locations', function(){
+  it('inserts values in the correct locations', function () {
     tree
     .insert(80)
     .insert(20);
@@ -27,7 +27,7 @@ describe('A binary search tree', function(){
     expect(tree.right.value).toBe(80);
   });
 
-  it('inserts many values in the correct locations', function(){
+  it('inserts many values in the correct locations', function () {
     [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(tree.insert.bind(tree));
     expect(tree.left.value).toBe(15);
     expect(tree.right.value).toBe(66);
@@ -40,13 +40,13 @@ describe('A binary search tree', function(){
     expect(tree.left.right.left.left.value).toBe(19);
   });
 
-  it('finds the minimum and maximum', function(){
+  it('finds the minimum and maximum', function () {
     [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(tree.insert.bind(tree));
     expect(tree.min()).toBe(5);
     expect(tree.max()).toBe(99);
   });
 
-  it('confirms containment (or not) of values', function(){
+  it('confirms containment (or not) of values', function () {
     [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(tree.insert.bind(tree));
     expect(tree.contains(45)).toBe(true);
     expect(tree.contains(54)).toBe(true);
@@ -54,7 +54,7 @@ describe('A binary search tree', function(){
     expect(tree.contains(51)).toBe(false);
   });
 
-  it('processes its nodes using in-order traversal', function(){
+  it('processes its nodes using in-order traversal', function () {
     [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(tree.insert.bind(tree));
     var vals = [];
     tree.traverse(function (value) {

@@ -2,14 +2,14 @@
 /* global LinkedList */
 // Data Structures Review Week Mini-Assessment
 
-describe('A doubly-linked list', function(){
+describe('A doubly-linked list', function () {
 
   var list, uniqueObj = { id: 789 };
-  beforeEach(function(){
+  beforeEach(function () {
     list = new LinkedList();
   });
 
-  it('can add to the tail', function(){
+  it('can add to the tail', function () {
     list.addToTail(uniqueObj);
     expect(list.head).toBe(list.tail);
     expect(list.tail).toEqual({
@@ -19,7 +19,7 @@ describe('A doubly-linked list', function(){
     });
   });
 
-  it('can add two items', function(){
+  it('can add two items', function () {
     list.addToTail('first').addToTail('second');
     expect(list.head).toEqual({
       item: 'first',
@@ -33,7 +33,7 @@ describe('A doubly-linked list', function(){
     });
   });
 
-  it('can add multiple items', function(){
+  it('can add multiple items', function () {
     list.addToTail(1).addToTail(2).addToTail(3);
     expect(list.head.prev).toBe(null);
     expect(list.tail.next).toBe(null);
@@ -45,7 +45,7 @@ describe('A doubly-linked list', function(){
     expect(list.tail.prev.prev).toBe(list.head);
   });
 
-  it('can remove items cleanly', function(){
+  it('can remove items cleanly', function () {
     list.addToTail(500).addToTail(404).addToTail(200);
     expect(list.removeFromTail()).toBe(200);
     expect(list.tail.next).toBe(null);
@@ -56,12 +56,12 @@ describe('A doubly-linked list', function(){
     expect(list.removeFromTail()).toBe(undefined);
   });
 
-  it('can call a function on each node item', function(){
+  it('can call a function on each node item', function () {
     list.addToTail('Gandalf')
         .addToTail('Dumbledore')
         .addToTail('Merlin');
     var initials = [];
-    list.forEach(function(item){
+    list.forEach(function (item) {
       initials.push(item[0]);
     });
     // this is the main test...
