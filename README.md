@@ -25,4 +25,3 @@ You can pass the `Queue` & `Stack` specs using simple array methods to begin. If
 1. `git add -A`
 2. `git commit -m 'submission for deadline'`
 3. `git push`
-2. Zip your project directory (minus any `node_modules`!) and email it to instructors+assessment@fullstackacademy.com.
