@@ -2,17 +2,13 @@
 
 ## Fork the Repo
 
-Navigate to [this repo](https://github.com/FullstackAcademy/mini-assessment-data) and fork it to your own Github account. Then `git clone` your forked repo to your local machine.
+Navigate to [this repo](https://github.com/FullstackAcademy/mini-assessment-data) and **fork it** to your own Github account. Then `git clone` your forked repo to your local machine.
 
 ## Running the Specs
 
-The Test'Em Jasmine spec runner must be installed on your system:
-
-```
-npm install -g testem
-```
-
-Execute the tests by running `testem` from the assessment folder.
+1. `npm install`
+2. `npm test`
+3. Navigate to the URL displayed by Test'Em
 
 ## Test Parameters
 
@@ -22,6 +18,7 @@ You can pass the `Queue` & `Stack` specs using simple array methods to begin. If
 
 ## Submitting your Code
 
-1. `git add -A`
-2. `git commit -m 'submission for deadline'`
-3. `git push`
+You are encouraged to make commits at major milestones. Before the deadline, make sure to push up a submission commit:
+
+1. `git commit -am 'submission for deadline'`
+2. `git push`
