@@ -16,11 +16,11 @@ describe('An association list', function () {
   it('can set a value for a key', function () {
     expect(alist.head).toBe(null);
     alist.set('color', 'brown');
-    expect(alist.head).toEqual({
+    expect(alist.head).toEqual(jasmine.objectContaining({
       key: 'color',
       value: 'brown',
       next: null
-    });
+    }));
   });
 
   it('can get a value for a key', function () {

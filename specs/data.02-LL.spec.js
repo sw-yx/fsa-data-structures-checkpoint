@@ -12,25 +12,25 @@ describe('A doubly-linked list', function () {
   it('can add to the tail', function () {
     list.addToTail(uniqueObj);
     expect(list.head).toBe(list.tail);
-    expect(list.tail).toEqual({
+    expect(list.tail).toEqual(jasmine.objectContaining({
       item: uniqueObj,
       next: null,
       prev: null
-    });
+    }));
   });
 
   it('can add two items', function () {
     list.addToTail('first').addToTail('second');
-    expect(list.head).toEqual({
+    expect(list.head).toEqual(jasmine.objectContaining({
       item: 'first',
       next: list.tail,
       prev: null
-    });
-    expect(list.tail).toEqual({
+    }));
+    expect(list.tail).toEqual(jasmine.objectContaining({
       item: 'second',
       next: null,
       prev: list.head
-    });
+    }));
   });
 
   it('can add multiple items', function () {
