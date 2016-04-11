@@ -1,6 +1,6 @@
 'use strict';
 /* global Queue Stack */
-// Data Structures Review Week Mini-Assessment
+// Data Structures Review Week Assessment
 
 // For Queues and Stacks: use any array methods (pop/push/shift/unshift).
 // If you have time at the end, you can attempt index-only solutions —
@@ -59,6 +59,8 @@ describe('A stack', function () {
 });
 
 describe('A queue', function () {
+
+  pending('This is an extra-credit suite. Remove this line to try it.');
 
   var queue, uniqueObj = { id: 123 };
   beforeEach(function () {

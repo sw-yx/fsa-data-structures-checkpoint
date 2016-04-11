@@ -24,6 +24,8 @@ Stack.prototype.remove = function () {
 //-----------------------------------------
 // Queues
 
+// EXTRA CREDIT: remove the `pending` line in the spec to attempt.
+
 function Queue () {
   // your code here
 }
@@ -39,6 +41,8 @@ Queue.prototype.remove = function () {
 
 //-----------------------------------------
 // Linked lists
+
+// EXTRA CREDIT: remove the `pending` line in the spec to attempt.
 
 function LinkedList () {
   this.head = this.tail = null;
@@ -103,12 +107,12 @@ function HashTable () {
 }
 
 HashTable.prototype.set = function (key, value) {
-  // your code here
+  // your code here. DO NOT simply set a prop. on an obj., that is cheating.
   return this; // for chaining, do not edit
 };
 
 HashTable.prototype.get = function (key) {
-  // your code here
+  // your code here. DO NOT simply get a prop. from an obj., that is cheating.
 };
 
 //-----------------------------------------

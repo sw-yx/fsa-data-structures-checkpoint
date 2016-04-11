@@ -1,6 +1,6 @@
 'use strict';
 /* global Alist */
-// Data Structures Review Week Mini-Assessment
+// Data Structures Review Week Assessment
 
 // An association list is a singly-linked list which adds to the head only,
 // and whose nodes contain not just values but rather key-value pairs.

@@ -1,6 +1,6 @@
 'use strict';
 /* global BinarySearchTree */
-// Data Structures Review Week Mini-Assessment
+// Data Structures Review Week Assessment
 
 /* You are encouraged to implement these methods using recursion. For extra
 credit, you may also want to try implementing them without recursion, though

@@ -1,6 +1,6 @@
 'use strict';
 /* global HashTable */
-// Data Structures Review Week Mini-Assessment
+// Data Structures Review Week Assessment
 
 // NOTE: this suite requires a working Association List.
 

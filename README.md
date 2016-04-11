@@ -2,7 +2,7 @@
 
 ## Fork the Repo
 
-Navigate to [this repo](https://github.com/FullstackAcademy/mini-assessment-data) and **fork it** to your own Github account. Then `git clone` your forked repo to your local machine.
+**Fork this repo** to your own Github account. Then `git clone` your forked repo to your local machine.
 
 ## Running the Specs
 
@@ -12,7 +12,7 @@ Navigate to [this repo](https://github.com/FullstackAcademy/mini-assessment-data
 
 ## Test Parameters
 
-You may work on the suites in any order, except that to do `HashTable` you need a working `Alist`.
+You may work on the suites in any order, except that to do `HashTable` you need a working `Alist`. Note that some suites are extra credit.
 
 You can pass the `Queue` & `Stack` specs using simple array methods to begin. If you have time, attempt `Queue` & `Stack` solutions that use pointers (indices) or Linked Lists; however, you are encouraged to work on other specs first.
 
