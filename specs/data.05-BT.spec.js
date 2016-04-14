@@ -28,7 +28,9 @@ describe('A binary search tree', function () {
   });
 
   it('inserts many values in the correct locations', function () {
-    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(tree.insert.bind(tree));
+    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(function(n) {
+      return tree.insert(n);
+    });
     expect(tree.left.value).toBe(15);
     expect(tree.right.value).toBe(66);
     expect(tree.left.left.value).toBe(5);
@@ -41,13 +43,17 @@ describe('A binary search tree', function () {
   });
 
   it('finds the minimum and maximum', function () {
-    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(tree.insert.bind(tree));
+    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(function(n) {
+      return tree.insert(n);
+    });
     expect(tree.min()).toBe(5);
     expect(tree.max()).toBe(99);
   });
 
   it('confirms containment (or not) of values', function () {
-    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(tree.insert.bind(tree));
+    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(function(n) {
+      return tree.insert(n);
+    });
     expect(tree.contains(45)).toBe(true);
     expect(tree.contains(54)).toBe(true);
     expect(tree.contains(3)).toBe(false);
@@ -55,7 +61,9 @@ describe('A binary search tree', function () {
   });
 
   it('processes its nodes using in-order traversal', function () {
-    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(tree.insert.bind(tree));
+    [15, 66, 45, 36, 5, 54, 99, 19, 95].forEach(function(n) {
+      return tree.insert(n);
+    });
     var vals = [];
     tree.traverse(function (value) {
       vals.push(value);
