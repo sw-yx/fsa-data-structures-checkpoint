@@ -1,4 +1,4 @@
-# Review Week Assessment: Data Structures
+# Review Week Checkpoint: Data Structures
 
 ## Fork the Repo
 
@@ -10,7 +10,7 @@
 2. `npm test`
 3. Navigate to the URL displayed by Test'Em
 
-## Test Parameters
+## Checkpoint Parameters
 
 You may work on the suites in any order, except that to do `HashTable` you need a working `Alist`. Note that some suites are extra credit.
 
