@@ -63,11 +63,12 @@ describe('An association list', function () {
     expect(alist.get('color')).toBe('white');
   });
 
-  it('returns `undefined` for unset keys', function () {
-    expect(alist.get('something')).toBeUndefined();
-    // the following is just so this spec does not pass before writing Alist
+    it('returns `undefined` for unset keys', function () {
+    // the following lines are mostly so this spec does not pass "early"
     alist.set('AlistSetGetWorking', true);
     expect(alist.get('AlistSetGetWorking')).toBe(true);
+    // this line is the main expectation of interest
+    expect(alist.get('something')).toBeUndefined();
   });
 
 });
