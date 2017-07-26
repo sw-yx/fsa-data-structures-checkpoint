@@ -31,15 +31,18 @@ Stack.prototype.remove = function () {
 
 function Queue () {
   // your code here
+  this.arr = []
 }
 
 Queue.prototype.add = function (item) {
   // your code here
+  this.arr.unshift(item)
   return this; // for chaining, do not edit
 };
 
 Queue.prototype.remove = function () {
   // your code here
+  return this.arr.pop()
 };
 
 //-----------------------------------------
@@ -60,7 +63,7 @@ function ListNode (item, prev, next) {
 LinkedList.prototype.addToTail = function (item) {
 
 	var oldTail = this.tail
-	this.tail = new Node(x, null, oldTail)
+	this.tail = new ListNode(item, oldTail, null)
 	if (oldTail) oldTail.next = this.tail
 	if (!this.head) this.head = this.tail
   // your code here
@@ -71,20 +74,25 @@ LinkedList.prototype.removeFromTail = function () {
   // your code here
 
 	if (!this.tail) {
-		return null
+		return undefined
 	} else {
 		// this.tail points to this.tail.next
 		var oldTail = this.tail
-		this.tail = this.tail.previous
+		this.tail = this.tail.prev
 		if (this.tail) this.tail.next = null
 		// and return this.tail.next
 		if (!this.tail) this.head = null
-		return oldTail.value
+		return oldTail.item
 	}
 };
 
 LinkedList.prototype.forEach = function (iterator) {
   // your code here
+  var ptr = this.head
+  while (ptr) {
+    iterator(ptr.item)
+    ptr = ptr.next
+  }
 };
 
 //-----------------------------------------

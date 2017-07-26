@@ -60,7 +60,7 @@ describe('A stack', function () {
 
 describe('A queue', function () {
 
-  pending('This is an extra-credit suite. Remove this line to try it.');
+  // pending('This is an extra-credit suite. Remove this line to try it.');
 
   var queue, uniqueObj = { id: 123 };
   beforeEach(function () {
