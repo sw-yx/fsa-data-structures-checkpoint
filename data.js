@@ -24,6 +24,8 @@ Stack.prototype.remove = function () {
   return this.arr.pop()
 };
 
+//// good.
+
 //-----------------------------------------
 // Queues
 
@@ -44,6 +46,9 @@ Queue.prototype.remove = function () {
   // your code here
   return this.arr.pop()
 };
+
+
+//// yep.
 
 //-----------------------------------------
 // Linked lists
@@ -70,6 +75,8 @@ LinkedList.prototype.addToTail = function (item) {
   return this; // for chaining, do not edit
 };
 
+//// good approach.
+
 LinkedList.prototype.removeFromTail = function () {
   // your code here
 
@@ -86,6 +93,8 @@ LinkedList.prototype.removeFromTail = function () {
 	}
 };
 
+//// javascript returns `undefined` by default, so writing `return` on line 84 will suffice.
+
 LinkedList.prototype.forEach = function (iterator) {
   // your code here
   var ptr = this.head
@@ -94,6 +103,8 @@ LinkedList.prototype.forEach = function (iterator) {
     ptr = ptr.next
   }
 };
+
+//// not sure what 'ptr' means. be sure to make your variables readable.
 
 //-----------------------------------------
 // Association lists
@@ -119,12 +130,22 @@ Alist.prototype.set = function (key, value) {
   //     // set new value
   //     ptr.value = value
   //     return this
-  //   } 
+  //   }
   //   ptr = ptr.next
   // }
-  this.head = new AlistNode(key,value, ptr)
+  this.head = new AlistNode(key, value, ptr)
   return this; // for chaining; do not edit
 };
+
+//// the above can be rewritten:
+
+Alist.prototype.set = function (key, value) {
+  this.head = new AlistNode(key, value, this.head)
+  return this; // for chaining; do not edit
+};
+
+//// the assignment operator (=) 'reads' right-to-left, so it will evaluate the expression on the right before it re-assigns the value of `this.head`.
+
 
 Alist.prototype.get = function (key) {
   // your code here
@@ -136,6 +157,8 @@ Alist.prototype.get = function (key) {
     ptr = ptr.next
   }
 };
+
+//// excellent.
 
 
 //-----------------------------------------
@@ -159,6 +182,18 @@ function HashTable () {
   this.buckets = x
 }
 
+//// no need for a temp variable:
+
+function HashTable () {
+  this.buckets = Array(20);
+  // your code here
+  for (var i = 0; i < this.buckets.length; i++){
+    this.buckets[i] = new Alist
+  }
+}
+
+//// this will accomplish the same thing.
+
 HashTable.prototype.set = function (key, value) {
   // your code here. DO NOT simply set a prop. on an obj., that is cheating.
   this.buckets[hash(key)].set(key,value)
@@ -169,6 +204,8 @@ HashTable.prototype.get = function (key) {
   // your code here. DO NOT simply get a prop. from an obj., that is cheating.
   return this.buckets[hash(key)].get(key)
 };
+
+//// good work using the prototypal methods of the a-list. dry, clean code!
 
 //-----------------------------------------
 // Binary search trees
@@ -184,17 +221,28 @@ BinarySearchTree.prototype.insert = function (v) {
   // your code here
   if (this.value < v) {
       if (this.right) {
-          this.right.insert(v) 
+          this.right.insert(v)
       } else {
           this.right = new BinarySearchTree(v)
       }
   } else {
       if (this.left) {
-          this.left.insert(v) 
+          this.left.insert(v)
       } else {
           this.left = new BinarySearchTree(v)
       }
   }
+  return this; // for chaining, do not edit
+};
+
+
+//// the logic here gets a bit redundant. here's a possible rewrite:
+
+BinarySearchTree.prototype.insert = function (val) {
+  var direction = val < this.value ? 'left' : 'right';
+  if (!this[direction]) this[direction] = new BinarySearchTree(val);
+  else this[direction].insert(val);
+
   return this; // for chaining, do not edit
 };
 
@@ -208,23 +256,35 @@ BinarySearchTree.prototype.max = function () {
   return this.right ? this.right.max() : this.value
 };
 
+
+//// lovely one-liners and  usage of ternaries.
+
 BinarySearchTree.prototype.contains = function (v) {
   // your code here
     if (this.value == v) {
         return true
     } else {
         if (this.right) {
-            var rightside = this.right.contains(v) 
+            var rightside = this.right.contains(v)
         } else {
             var rightside = false
         }
         if (this.left) {
-            var leftside = this.left.contains(v) 
+            var leftside = this.left.contains(v)
         } else {
             var leftside = false
         }
         return leftside || rightside
     }
+};
+
+//// a logic gate! good. knowing how those work will save you/your team a lot of trouble as you build out react components. again, the same 'direction' trick will save you a bit of time:
+
+BinarySearchTree.prototype.contains = function (val) {
+  if (this.value === val) return true;
+  let direction = val < this.value ? 'left' : 'right';
+  if (this[direction]) return this[direction].contains(val)
+  return false
 };
 
 BinarySearchTree.prototype.traverse = function (fn) {
@@ -235,3 +295,5 @@ BinarySearchTree.prototype.traverse = function (fn) {
   // Inorder right subtree
   if (this.right) this.right.traverse(fn);
 };
+
+//// alright, great work Shawn. you have an excellent grasp of these structures and of recursion. my only recommendation is making your code drier wherever it looks redundant. but this is strong stuff.
