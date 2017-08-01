@@ -1,3 +1,9 @@
+# note to future self
+
+the following is the completed work from week 1 of FSA with comments from my fellow. all relevant work is in `data.js`, the rest is just test specs.
+
+---
+
 # Review Week Checkpoint: Data Structures
 
 ## Fork the Repo
